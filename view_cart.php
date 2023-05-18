@@ -27,12 +27,13 @@
 </table>
 SUM :
 <?php
-	echo $sum.'$'
+	echo $sum.'$';
+	if (!empty($_SESSION['name'])) {
 ?>
 <br>
 Infomation receiver:
 <br>
-<form method="post" action="review_order.php">
+<form method="post" action="./root/process_order.php">
 	Name
 	<input type="text" name="name" value="<?php echo $_SESSION['name'] ?>">
 	<br>
@@ -47,3 +48,23 @@ Infomation receiver:
 	<br>
 	<button>Order</button>
 </form>
+<?php } else { ?>
+<br>
+Infomation receiver:
+<br>
+<form method="post" action="./root/process_order.php">
+	Name
+	<input type="text" name="name">
+	<br>
+	Email
+	<input type="text" name="email">
+	<br>
+	Phone number
+	<input type="text" name="phone">
+	<br>
+	Address
+	<input type="text" name="address" >
+	<br>
+	<button>Order</button>
+</form>
+<?php } ?>

@@ -29,8 +29,6 @@
 			<th>PHOTO</th>
 			<th>PRICE</th>
 			<th>BUY</th>
-			<th>EDIT</th>
-			<th>DELETE</th>
 		</tr>
 		<?php foreach($result as $each) { ?>
 			<tr>
@@ -39,8 +37,6 @@
 				<td><img src="./root/<?php echo $each['photo']?>" height=100px></td>
 				<td><?php echo $each['price'].'$'; ?></td>
 				<td><a href="cart.php?id=<?php echo $each['id']?>">ADD CART</a></td>
-				<td><a href="./root/update_product.php?id=<?php echo $each['id']?>">EDIT</a></td>
-				<td><a href="./root/delete.php?id=<?php echo $each['id']?>">DELETE</a></td>
 			</tr>
 		<?php } ?>
 	</table>

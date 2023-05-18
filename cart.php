@@ -17,5 +17,6 @@
 	else{
 		$_SESSION['cart'][$id]['quantity'] += 1;
 	}
+	header('location:home.php');
 	#echo json_encode($_SESSION['cart']);	
 ?>

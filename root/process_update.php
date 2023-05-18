@@ -18,7 +18,7 @@
 		$sql = "update products set name='$name',photo='$path_file',manufacturer='$manufacturer',price='$price' where id='$id'";
 		$update = mysqli_query($log_sql,$sql);
 		mysqli_close($log_sql);
-		header('location:../home.php');
+		header('location:home_root.php');
 		exit();
 		}
 	header('location:update_product.php?error=Cannot be left blank');
