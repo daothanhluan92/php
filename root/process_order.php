@@ -3,12 +3,25 @@
 	include '../connect.php';
 	if (!empty($_SESSION['id'])) {
 		$id = $_SESSION['id'];
-		$product_id = $_SESSION['cart'][$id]['id'];
-		$sql = "insert into order_product(user_id,product_id) values('$id','$product_id')";
-		mysqli_query($log_sql,$sql);
+		foreach ($_SESSION['cart'] as $cart ) {
+			$product_id = $cart['id'];
+			$quantity = $cart['quantity'];
+			$sql = "insert into order_product(user_id,product_id,quantity) values('$id','$product_id','$quantity')";
+			mysqli_query($log_sql,$sql);
+			mysql_close($log_sql);
+		}
 	}
 	else{
-		echo 1;
-		exit();
-	}
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$phone = $_POST['phone'];
+		$address = $_POST['address'];
+		foreach ($_SESSION['cart'] as $cart ){
+			$product_id = $cart['id'];
+			$quantity = $cart['quantity'];
+			$sql = "insert into order_product(name,email,phone,address,quantity,product_id) values('$name','$email','$phone','$address','$quantity','$product_id')";
+			mysqli_query($log_sql,$sql);
+			#mysqli_close($log_sql);
+			}
+		}
 ?>
