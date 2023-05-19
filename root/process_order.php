@@ -8,7 +8,7 @@
 			$quantity = $cart['quantity'];
 			$sql = "insert into order_product(user_id,product_id,quantity) values('$id','$product_id','$quantity')";
 			mysqli_query($log_sql,$sql);
-			mysql_close($log_sql);
+			#mysqli_close($log_sql);
 		}
 	}
 	else{
